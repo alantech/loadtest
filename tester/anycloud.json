@@ -1,0 +1,7 @@
+{
+  "test-aws": [{
+    "region": "us-west-2",
+    "vmType": "t3.medium",
+    "credentials": "test-aws"
+  }]
+}
