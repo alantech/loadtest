@@ -8,6 +8,7 @@ const testPatterns = [
   // First field is # of milliseconds the server should burn
   // Second field is # of concurrent requests to run
   // Third field is # of seconds to run this particular test pattern
+  [100, 1, 60],
   [100, 2, 60],
   [100, 3, 60],
   [100, 4, 60],
@@ -31,15 +32,17 @@ const testPatterns = [
 const main = async () => {
   for (const pattern of testPatterns) {
     const [ms, concurrency, totalTime] = pattern
-    console.log(`Running load test at ${ms} CPU load per request, ${concurrency} concurrent requests, for ${totalTime} seconds`)
+    console.log(`Running load test at ${ms}ms CPU load per request, ${concurrency} concurrent requests, for ${totalTime} seconds`)
     const start = Date.now()
-    const end = start + totalTime * 1000
+    const end = start + (totalTime * 1000)
     let numRequests = 0
-    while (end > Date.now()) {
-      await [...new Array(concurrency)].map(() => fetch(`${baseUrl}/${ms}`))
-      numRequests += concurrency
-    }
-    console.log(`Finished. Actual time ${(Date.now() - start) / 60} seconds, Total requests run: ${numRequests}, expected ${totalTime * concurrency * 1000 / ms}`)
+    await Promise.all([...new Array(concurrency)].map(async () => {
+      while (end > Date.now()) {
+        await (await fetch(`${baseUrl}/${ms}`))
+        numRequests++
+      }
+    }))
+    console.log(`Finished. Actual time ${(Date.now() - start) / 1000} seconds, Total requests run: ${numRequests}, expected ${totalTime * concurrency * 1000 / ms}`)
   }
 }
 
