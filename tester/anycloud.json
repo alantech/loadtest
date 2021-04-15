@@ -3,5 +3,9 @@
     "region": "us-west-2",
     "vmType": "t3.medium",
     "credentialsName": "test-aws"
+  },{
+    "region": "us-east-2",
+    "vmType": "t3.medium",
+    "credentialsName": "test-aws"
   }]
 }
