@@ -2,7 +2,7 @@
 
 const fetch = require('cross-fetch')
 
-const baseUrl = 'https://anycloud-loadtest.anycloudapp.com'
+const baseUrl = 'https://loadtest-3.alandeploy.com'
 
 const testPatterns = [
   // First field is # of milliseconds the server should burn
