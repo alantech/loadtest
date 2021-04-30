@@ -3,5 +3,19 @@
     "region": "eu-west-1",
     "vmType": "t3.medium",
     "credentialsName": "aws-alantech"
-  }]
+  }],
+  "single-az": [
+    {
+      "credentialsName": "azure-alantech",
+      "region": "westeurope",
+      "vmType": "Standard_B2s"
+    }
+  ],
+  "single-gcp": [
+    {
+      "credentialsName": "gcp-alantech",
+      "region": "europe-west2-a",
+      "vmType": "e2-medium"
+    }
+  ]
 }
