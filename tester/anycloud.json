@@ -8,7 +8,8 @@
     {
       "credentialsName": "azure-alantech",
       "region": "westeurope",
-      "vmType": "Standard_B2s"
+      "vmType": "Standard_B2s",
+      "minReplicas": 3
     }
   ],
   "single-gcp": [
