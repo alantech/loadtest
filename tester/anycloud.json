@@ -9,12 +9,13 @@
       "credentialsName": "azure-alantech",
       "region": "westeurope",
       "vmType": "Standard_B2s",
-      "minReplicas": 3
+      "minReplicas": 1
     },
     {
       "credentialsName": "gcp-alantech",
       "region": "europe-west2-a",
-      "vmType": "e2-medium"
+      "vmType": "e2-medium",
+      "minReplicas": 1
     }
   ]
 }
