@@ -2,6 +2,7 @@
   "test-aws": [{
     "region": "us-west-2",
     "vmType": "t3.medium",
-    "credentialsName": "test-aws"
+    "credentialsName": "test-aws",
+    "minReplicas": 2
   }]
 }
