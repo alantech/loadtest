@@ -43,8 +43,8 @@ const main = async () => {
       }
     }))
     console.log(`Finished. Actual time ${(Date.now() - start) / 1000} seconds, Total requests run: ${numRequests}, expected ${totalTime * concurrency * 1000 / ms}`)
-    const foo = await (await fetch(`${baseUrl}/kv/foo`))
-    const helloWorld = await (await fetch(`${baseUrl}/kv/helloWorld`))
+    const foo = await (await fetch(`${baseUrl}/kv/foo`)).text()
+    const helloWorld = await (await fetch(`${baseUrl}/kv/helloWorld`)).text()
     if (foo === 'bar' && helloWorld === 'Hello, World!') {
       console.log('KV Data still properly accessible')
     } else {
