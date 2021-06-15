@@ -34,8 +34,4 @@ app.post('/kv/:key', (req, res) => {
   res.send(ds[req.params.key] = req.body)
 })
 
-// Some built-in keys to check on
-ds.foo = 'bar'
-ds.helloWorld = 'Hello, World!'
-
 app.listen(8088)

@@ -30,6 +30,15 @@ const testPatterns = [
 ]
 
 const main = async () => {
+  // Set the test values
+  await (await fetch(`${baseUrl}/kv/foo`, {
+    method: 'post',
+    body: 'bar',
+  }))
+  await (await fetch(`${baseUrl}/kv/helloWorld`, {
+    method: 'post',
+    body: 'Hello, World!',
+  }))
   for (const pattern of testPatterns) {
     const [ms, concurrency, totalTime] = pattern
     console.log(`Running load test at ${ms}ms CPU load per request, ${concurrency} concurrent requests, for ${totalTime} seconds`)
