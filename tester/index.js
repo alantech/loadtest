@@ -1,6 +1,9 @@
 const express = require('express')
+const { ds } = require('./anycloud') // TODO: Once published, use that version instead
 
 const app = express()
+
+app.use(express.json({ limit: '10MB' })
 
 app.get('/:ms', (req, res) => {
   const ms = parseInt(req.params.ms, 10)
@@ -20,5 +23,17 @@ app.get('/:ms', (req, res) => {
     j, // Why not?
   }))
 })
+
+app.get('/kv/:key', async (req, res) => {
+  res.send(await ds[req.params.key])
+})
+
+app.post('/kv/:key', (req, res) => {
+  res.send(ds[req.params.key] = req.body)
+})
+
+// Some built-in keys to check on
+ds.foo = 'bar'
+ds.helloWorld = 'Hello, World!'
 
 app.listen(8088)
