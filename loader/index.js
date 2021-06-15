@@ -38,7 +38,7 @@ const main = async () => {
     let numRequests = 0
     await Promise.all([...new Array(concurrency)].map(async () => {
       while (end > Date.now()) {
-        await (await fetch(`${baseUrl}/${ms}`))
+        await (await fetch(`${baseUrl}/load/${ms}`))
         numRequests++
       }
     }))

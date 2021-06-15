@@ -1,11 +1,11 @@
 const express = require('express')
-const { ds, }= require('./anycloud-lib') // TODO: Once published, use that version instead
+const { ds, } = require('./anycloud-lib') // TODO: Once published, use that version instead
 
 const app = express()
 
 app.use(express.json({ limit: '10MB' }))
 
-app.get('/:ms', (req, res) => {
+app.get('/load/:ms', (req, res) => {
   const ms = parseInt(req.params.ms, 10)
   const start = Date.now()
   const end = start + ms
