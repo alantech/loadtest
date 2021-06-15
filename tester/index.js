@@ -25,6 +25,8 @@ app.get('/load/:ms', (req, res) => {
 })
 
 app.get('/kv/:key', async (req, res) => {
+  console.log(ds[req.params.key])
+  console.log(await ds[req.params.key])
   res.send(await ds[req.params.key])
 })
 
