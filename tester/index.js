@@ -3,7 +3,7 @@ const { ds, } = require('./anycloud-lib') // TODO: Once published, use that vers
 
 const app = express()
 
-app.use(express.json({ limit: '10MB' }))
+app.use(express.text())
 
 app.get('/load/:ms', (req, res) => {
   const ms = parseInt(req.params.ms, 10)

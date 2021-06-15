@@ -16,17 +16,17 @@ const testPatterns = [
   [100, 6, 60],
   [100, 7, 60],
   [100, 8, 60],
-  [100, 9, 360],
+  [100, 9, 60],
   [100, 10, 60],
   [100, 12, 60],
   [100, 14, 60],
   [100, 16, 60],
-  [100, 18, 360],
+  [100, 18, 60],
   [100, 20, 60],
   [100, 24, 60],
-  [100, 28, 360],
+  [100, 28, 60],
   [100, 30, 60],
-  [100, 38, 360],
+  [100, 38, 60],
 ]
 
 const main = async () => {
@@ -34,10 +34,12 @@ const main = async () => {
   await (await fetch(`${baseUrl}/kv/foo`, {
     method: 'post',
     body: 'bar',
+    headers: { "Content-Type": "text/plain", },
   }))
   await (await fetch(`${baseUrl}/kv/helloWorld`, {
     method: 'post',
     body: 'Hello, World!',
+    headers: { "Content-Type": "text/plain", },
   }))
   for (const pattern of testPatterns) {
     const [ms, concurrency, totalTime] = pattern
