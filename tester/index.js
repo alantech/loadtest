@@ -1,8 +1,11 @@
 const express = require('express')
+const { ds, } = require('./anycloud-lib') // TODO: Once published, use that version instead
 
 const app = express()
 
-app.get('/:ms', (req, res) => {
+app.use(express.text())
+
+app.get('/load/:ms', (req, res) => {
   const ms = parseInt(req.params.ms, 10)
   const start = Date.now()
   const end = start + ms
@@ -19,6 +22,16 @@ app.get('/:ms', (req, res) => {
     actualTime,
     j, // Why not?
   }))
+})
+
+app.get('/kv/:key', async (req, res) => {
+  console.log(ds[req.params.key])
+  console.log(await ds[req.params.key])
+  res.send(await ds[req.params.key])
+})
+
+app.post('/kv/:key', (req, res) => {
+  res.send(ds[req.params.key] = req.body)
 })
 
 app.listen(8088)
