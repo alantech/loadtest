@@ -2,7 +2,8 @@
 
 const fetch = require('cross-fetch')
 
-const baseUrl = `https://${process.argv[process.argv.length - 1]}.alandeploy.com`
+// const baseUrl = `https://${process.argv[process.argv.length - 1]}.alandeploy.com`
+const baseUrl = `https://load-test.anycloudapp.com`
 
 const testPatterns = [
   // First field is # of milliseconds the server should burn
