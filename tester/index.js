@@ -30,8 +30,10 @@ app.get('/kv/:key', async (req, res) => {
   res.send(await ds[req.params.key])
 })
 
-app.post('/kv/:key', (req, res) => {
-  res.send(ds[req.params.key] = req.body)
+app.post('/kv/:key', async (req, res) => {
+  ds[req.params.key] = req.body;
+  const val = await ds[req.params.key];
+  res.send(val)
 })
 
 app.listen(8088)
