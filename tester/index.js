@@ -31,11 +31,8 @@ app.get('/kv/:key', async (req, res) => {
 })
 
 app.post('/kv/:key', async (req, res) => {
-  console.log("post", req.params.key);
-  console.log("post", req.body);
   ds[req.params.key] = req.body;
   const val = await ds[req.params.key];
-  console.log("post", val);
   res.send(val)
 })
 
