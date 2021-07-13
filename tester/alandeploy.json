@@ -1,7 +1,7 @@
 {
   "test-aws": [{
     "region": "eu-west-1",
-    "vmType": "t3.medium",
+    "vmType": "t2.micro",
     "credentialsName": "aws-alantech"
   }],
   "single-az-gcp": [
